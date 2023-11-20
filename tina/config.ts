@@ -1,12 +1,12 @@
 import { defineConfig } from "tinacms";
 
+// Your hosting provider likely exposes this as an environment variable
+const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+
 export default defineConfig({
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  branch:
-    process.env.NEXT_PUBLIC_TINA_BRANCH || // custom branch env override
-    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || // Vercel branch env
-    process.env.HEAD, // Netlify branch env
-  token: process.env.TINA_TOKEN,
+  branch,
+  token: "613cdb561bdbf6827c1234ec2aab9c81a4f75fd9",
+  clientId: "4434e103-89e2-4b8b-b690-d1f889f2ab9d",
 
   build: {
     outputFolder: "admin",
@@ -243,4 +243,3 @@ export default defineConfig({
     maxSearchIndexFieldLength: 100,
   },
 });
-
